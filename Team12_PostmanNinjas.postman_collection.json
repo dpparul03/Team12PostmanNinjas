@@ -1,0 +1,5762 @@
+{
+	"info": {
+		"_postman_id": "8d1cfc9b-c927-4c29-bce9-aa738b7bbd88",
+		"name": "Team12_PostmanNinjas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25111166"
+	},
+	"item": [
+		{
+			"name": "Program Module",
+			"item": [
+				{
+					"name": "GET All_Programs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const res = pm.response.json();\r",
+									"\r",
+									"console.log(\"programId\"+ res[0].programId);\r",
+									"pm.globals.set(\"programId\", res[0].programId);\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"creationTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"lastModTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"programId\",\r",
+									"        \"programName\",\r",
+									"        \"programDescription\",\r",
+									"        \"programStatus\",\r",
+									"        \"creationTime\",\r",
+									"        \"lastModTime\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"creationTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"lastModTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"programId\",\r",
+									"        \"programName\",\r",
+									"        \"programDescription\",\r",
+									"        \"programStatus\",\r",
+									"        \"creationTime\",\r",
+									"        \"lastModTime\"\r",
+									"      ]\r",
+									"    }\r",
+									"    \r",
+									"      ]\r",
+									"    }\r",
+									"  \r",
+									"\r",
+									"pm.test('Get Program by ID Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"//let responsebody= pm.response.json();\r",
+									"\r",
+									" //pm.test(\"Get All Program Test data type of response\",()=>{\r",
+									"   // pm.expect(responsebody).to.be.an(\"array\");\r",
+									"   // pm.expect(responsebody[0].programId).to.be.a(\"number\");\r",
+									"//pm.expect(responsebody[0].programName).to.be.a(\"string\");\r",
+									"  //  pm.expect(responsebody[0].programDescription).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody[0].programStatus).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody[0].creationTime).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody[0].lastModTime).to.be.a(\"string\");\r",
+									"\r",
+									"//});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/allPrograms",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"allPrograms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Program by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"creationTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastModTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"programId\",\r",
+									"    \"programName\",\r",
+									"    \"programDescription\",\r",
+									"    \"programStatus\",\r",
+									"    \"creationTime\",\r",
+									"    \"lastModTime\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('Get Program by ID Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"//let responsebody= pm.response.json();\r",
+									" //pm.test(\"Get Program by ID Test data type of response\",()=>{\r",
+									"   // pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"   // pm.expect(responsebody.programName).to.be.a('string');\r",
+									"   // pm.expect(responsebody.programDescription).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody.programStatus).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody.creationTime).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody.lastModTime).to.be.a(\"string\");\r",
+									"//}); "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/programs/{{programId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"programs",
+								"{{programId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Program By Invalid ID 404Error",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.variables.set(\"programId\",222);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"creationTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastModTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"programId\",\r",
+									"    \"programName\",\r",
+									"    \"programDescription\",\r",
+									"    \"programStatus\",\r",
+									"    \"creationTime\",\r",
+									"    \"lastModTime\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('Get Program by ID Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"//let responsebody= pm.response.json();\r",
+									" //pm.test(\"Get Program by ID Test data type of response\",()=>{\r",
+									"   // pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"   // pm.expect(responsebody.programName).to.be.a('string');\r",
+									"   // pm.expect(responsebody.programDescription).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody.programStatus).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody.creationTime).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody.lastModTime).to.be.a(\"string\");\r",
+									"//}); "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/programs/programs/:{programid}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"programs",
+								"programs",
+								":{programid}"
+							],
+							"variable": [
+								{
+									"key": "{programid}",
+									"value": "222"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Save Program",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"pm.globals.set(\"programName\", monthYear + teamName + pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"creationTime\", creationTime);\r",
+									"pm.globals.set(\"lastModTime\", lastModTime);\r",
+									"\r",
+									"var body = \r",
+									"    {\r",
+									"    \"programName\": pm.globals.get(\"programName\"),\r",
+									"    \"programDescription\": \"Learn API Automation \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"Active\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"   \r",
+									"}\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"//console.log(\"Save Program jsonBody \"+JSON.stringify(body));\r",
+									"\r",
+									"pm.collectionVariables.set(\"request_body\",jsonBody)\r",
+									"//pm.collectionVariables.set(\"req_body\", JSON.stringify(body));\r",
+									"\r",
+									"//console.log(\"Save Program body set\"+JSON.stringify(body));\r",
+									"//console.log(\"Save Program reqbody \"+pm.globals.get(JSON.stringify(\"request_body\")));\r",
+									"\r",
+									"//postman.setNextRequest(\"{{baseurl}}/saveprogram\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"const res = pm.response.json();\r",
+									"\r",
+									"console.log(\"pm.globals.get(programId)\"+ res.programId);\r",
+									"\r",
+									"if(res.programId != null){\r",
+									"pm.globals.set(\"programId\", res.programId);\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"creationTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastModTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"programId\",\r",
+									"    \"programName\",\r",
+									"    \"programDescription\",\r",
+									"    \"programStatus\",\r",
+									"    \"creationTime\",\r",
+									"    \"lastModTime\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('POST Save Program Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"POST Save Program Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.programStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.creationTime).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.lastModTime).to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/saveprogram",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"saveprogram"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Invalid Program 400Error",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//var moment = require ('moment');\r",
+									"//var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"//var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"//console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"//var monthYear = moment().format(\"MMMYY\");\r",
+									"//const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"//parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"\r",
+									"//console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"//pm.globals.set(\"programName\", monthYear + teamName );\r",
+									"//pm.globals.set(\"creationTime\", creationTime);\r",
+									"//pm.globals.set(\"lastModTime\", lastModTime);\r",
+									"\r",
+									"var body = \r",
+									"    {\r",
+									"    \"programName\": pm.globals.get(\"programName\"),\r",
+									"    \"programDescription\": \"Learn API Automation \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"Active\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"   \r",
+									"}\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"//console.log(\"Save Program jsonBody \"+JSON.stringify(body));\r",
+									"//pm.collectionVariables.set(\"request_body\",jsonBody)\r",
+									"//pm.collectionVariables.set(\"req_body\", JSON.stringify(body));\r",
+									"\r",
+									"//console.log(\"Save Program body set\"+JSON.stringify(body));\r",
+									"//console.log(\"Save Program reqbody \"+pm.globals.get(JSON.stringify(\"request_body\")));\r",
+									"\r",
+									"//postman.setNextRequest(\"{{baseurl}}/saveprogram\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/saveprogram",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"saveprogram"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Save Program 500Servererror",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var body = \r",
+									"    {\r",
+									"    \"programName\": pm.globals.get(\"programName\"),\r",
+									"    \"programDescription\": \"Learn API Automation \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"Active\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"   \r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/saveprogram",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"saveprogram"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"creationTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastModTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"programId\",\r",
+									"    \"programName\",\r",
+									"    \"programDescription\",\r",
+									"    \"programStatus\",\r",
+									"    \"creationTime\",\r",
+									"    \"lastModTime\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('Update Program by ID Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"Update Program by ID Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.programStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.creationTime).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.lastModTime).to.be.a(\"string\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var pgmID = pm.globals.get(\"programId\");\r",
+									"console.log(\"pgmID ==>\"+ pgmID);\r",
+									"\r",
+									"console.log(pm.globals.get(\"programName\"));\r",
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"pm.globals.set(\"programName\", monthYear + teamName + pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"creationTime\", creationTime);\r",
+									"pm.globals.set(\"lastModTime\", lastModTime);\r",
+									"\r",
+									"var body = \r",
+									"    {\r",
+									"    \"programName\": pm.globals.get(\"programName\"),\r",
+									"    \"programDescription\": \"Learn API Automation \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"InActive\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"   \r",
+									"}\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"//console.log(\"Save Program jsonBody \"+JSON.stringify(body));\r",
+									"pm.collectionVariables.set(\"request_body\",jsonBody)\r",
+									"//pm.collectionVariables.set(\"req_body\", JSON.stringify(body));\r",
+									"\r",
+									"//console.log(\"Save Program body set\"+JSON.stringify(body));\r",
+									"//console.log(\"Save Program reqbody \"+pm.globals.get(JSON.stringify(\"request_body\")));\r",
+									"\r",
+									"//postman.setNextRequest(\"{{baseurl}}/saveprogram\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/putprogram/{{programId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"putprogram",
+								"{{programId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program By Invalid ID 404Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//var pgmID = pm.globals.get(\"programId\");\r",
+									"//console.log(\"pgmID ==>\"+ pgmID);\r",
+									"//console.log(pm.globals.get(\"programName\"));\r",
+									"\r",
+									"var body = \r",
+									"    {\r",
+									"    \"programName\": pm.globals.get(\"programIds\"),\r",
+									"    \"programDescription\": \"Update Program By ID \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"Inactive\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.collectionVariables.set(\"request_body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/putprogram/:programId",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"putprogram",
+								":programId"
+							],
+							"variable": [
+								{
+									"key": "programId",
+									"value": "007"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program By Bad Request ID400error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//var pgmID = pm.globals.get(\"programId\");\r",
+									"//console.log(\"pgmID ==>\"+ pgmID);\r",
+									"//console.log(pm.globals.get(\"programName\"));\r",
+									"\r",
+									"var body = \r",
+									"    {\r",
+									"    \"programName\": pm.globals.get(\"programName\"),\r",
+									"    \"programDescription\": \"Update Program By ID \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"Inactive\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"//pm.collectionVariables.set(\"request_body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestbody}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/putprogram/:programId",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"putprogram",
+								":programId"
+							],
+							"variable": [
+								{
+									"key": "programId",
+									"value": "{{programId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Program Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is text/plain;charset=UTF-8\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('text/plain;charset=UTF-8');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/deletebyprogid/{{programId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"deletebyprogid",
+								"{{programId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Invalid Program Id 404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is text/plain;charset=UTF-8\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/deletebyprogid/{{programId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"deletebyprogid",
+								"{{programId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create Program",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"pm.globals.set(\"programName\", monthYear + teamName + pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"creationTime\", creationTime);\r",
+									"pm.globals.set(\"lastModTime\", lastModTime);\r",
+									"\r",
+									"var body = \r",
+									"    {\r",
+									"    \"programName\": pm.globals.get(\"programName\"),\r",
+									"    \"programDescription\": \"Learn API Automation \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"Active\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"   \r",
+									"}\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"//console.log(\"Save Program jsonBody \"+JSON.stringify(body));\r",
+									"\r",
+									"pm.collectionVariables.set(\"request_body\",jsonBody)\r",
+									"//pm.collectionVariables.set(\"req_body\", JSON.stringify(body));\r",
+									"\r",
+									"//console.log(\"Save Program body set\"+JSON.stringify(body));\r",
+									"//console.log(\"Save Program reqbody \"+pm.globals.get(JSON.stringify(\"request_body\")));\r",
+									"\r",
+									"//postman.setNextRequest(\"{{baseurl}}/saveprogram\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"const res = pm.response.json();\r",
+									"\r",
+									"console.log(\"pm.globals.get(programId)\"+ res.programId);\r",
+									"\r",
+									"if(res.programId != null){\r",
+									"pm.globals.set(\"programId\", res.programId);\r",
+									"}\r",
+									"pm.globals.set(\"programId\", res.programId);\r",
+									"if(res.programName != null){\r",
+									"pm.globals.set(\"updateProgramName\", res.programName);\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"creationTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastModTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"programId\",\r",
+									"    \"programName\",\r",
+									"    \"programDescription\",\r",
+									"    \"programStatus\",\r",
+									"    \"creationTime\",\r",
+									"    \"lastModTime\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('POST Create Program Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"POST Create Program Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.programStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.creationTime).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.lastModTime).to.be.a(\"string\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/saveprogram",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"saveprogram"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program By Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"programStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"creationTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"lastModTime\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"programId\",\r",
+									"    \"programName\",\r",
+									"    \"programDescription\",\r",
+									"    \"programStatus\",\r",
+									"    \"creationTime\",\r",
+									"    \"lastModTime\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test('Update Program by Name Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"Update Program by Name Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.programStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.creationTime).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.lastModTime).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//var pgmID = pm.globals.get(\"programId\");\r",
+									"//console.log(\"pgmID ==>\"+ pgmID);\r",
+									"\r",
+									"console.log(pm.globals.get(\"programName\"));\r",
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"//pm.globals.set(\"programName\", monthYear + teamName + pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"creationTime\", creationTime);\r",
+									"pm.globals.set(\"lastModTime\", lastModTime);\r",
+									"pm.globals.get(\"programId\");\r",
+									"pm.globals.get(\"programName\");\r",
+									"var body = \r",
+									"    {\r",
+									"    \r",
+									"    \"programName\": pm.globals.get(\"programName\"),\r",
+									"    \"programDescription\": \"Learn C# \"+  pm.globals.get(\"serialNumber\"),\r",
+									"    \"programStatus\": \"Active\",\r",
+									"    \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"    \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"   \r",
+									"}\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"//console.log(\"Save Program jsonBody \"+JSON.stringify(body));\r",
+									"pm.collectionVariables.set(\"request_body\",jsonBody)\r",
+									"//pm.collectionVariables.set(\"req_body\", JSON.stringify(body));\r",
+									"\r",
+									"//console.log(\"Save Program body set\"+JSON.stringify(body));\r",
+									"//console.log(\"Save Program reqbody \"+pm.globals.get(JSON.stringify(\"request_body\")));\r",
+									"\r",
+									"//postman.setNextRequest(\"{{baseurl}}/saveprogram\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/program/{{programName}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"program",
+								"{{programName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program By Invalid ProgramName 404Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 \", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{request_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/program/:{programName}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"program",
+								":{programName}"
+							],
+							"variable": [
+								{
+									"key": "{programName}",
+									"value": "abcd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program By Bad Request Name400 Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"var body =\r",
+									"    {\r",
+									"   // \"programName\": pm.globals.get(\"programName\"),\r",
+									"   \"programDescription\": \" \",\r",
+									"    \"programStatus\": \"\",\r",
+									"   \"creationTime\": pm.globals.get(\"creationTime\"),\r",
+									"   \"lastModTime\": pm.globals.get(\"lastModTime\")\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.collectionVariables.set(\"body\", JSON.stringify(body));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/program/:{programName}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"program",
+								":{programName}"
+							],
+							"variable": [
+								{
+									"key": "{programName}",
+									"value": "abc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Program Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is text/plain;charset=UTF-8\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('text/plain;charset=UTF-8');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseurl}}/deletebyprogname/{{programName}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"deletebyprogname",
+								"{{programName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Invalid Program Name 404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is text/plain;charset=UTF-8\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseurl}}/deletebyprogname/{{programName}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"deletebyprogname",
+								"{{programName}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Batch Module",
+			"item": [
+				{
+					"name": "GET All Batches_-200 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//var moment = require ('moment');\r",
+									"//var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"//var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"//console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"//const res = pm.response.json();\r",
+									"//onsole.log(\"batchId\"+ res[0].batchId);\r",
+									"//pm.globals.set(\"batchId\", res[0].batchId);\r",
+									"\r",
+									"var jsonData=JSON.parse(responseBody);\r",
+									"pm.globals.set(\"BatchName\",jsonData.batchName);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"creationTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"lastModTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"programId\",\r",
+									"        \"programName\",\r",
+									"        \"programDescription\",\r",
+									"        \"programStatus\",\r",
+									"        \"creationTime\",\r",
+									"        \"lastModTime\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"programStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"creationTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"lastModTime\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"programId\",\r",
+									"        \"programName\",\r",
+									"        \"programDescription\",\r",
+									"        \"programStatus\",\r",
+									"        \"creationTime\",\r",
+									"        \"lastModTime\"\r",
+									"      ]\r",
+									"    }\r",
+									"    \r",
+									"      ]\r",
+									"    }\r",
+									"  \r",
+									"\r",
+									"pm.test('Get Program by ID Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.false;\r",
+									"});\r",
+									"\r",
+									"//let responsebody= pm.response.json();\r",
+									"\r",
+									" //pm.test(\"Get All Program Test data type of response\",()=>{\r",
+									"   // pm.expect(responsebody).to.be.an(\"array\");\r",
+									"   // pm.expect(responsebody[0].programId).to.be.a(\"number\");\r",
+									"//pm.expect(responsebody[0].programName).to.be.a(\"string\");\r",
+									"  //  pm.expect(responsebody[0].programDescription).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody[0].programStatus).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody[0].creationTime).to.be.a(\"string\");\r",
+									"   // pm.expect(responsebody[0].lastModTime).to.be.a(\"string\");\r",
+									"\r",
+									"//});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/batches",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Batches By Program ID- 404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/batches/program/:{programId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"program",
+								":{programId}}"
+							],
+							"variable": [
+								{
+									"key": "{programId}}",
+									"value": "456789"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Batch create -400 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require ('moment');\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"pm.globals.set(\"batchName\",monthYear+ teamName +pm.variables.replaceIn('{{$randomInt}}'));\r",
+									"\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"console.log (\"After increment serialNumber =>\"+pm.globals.get(\"serialNumber\"));\r",
+									"//pm.globals.set(\"ProgramId\",+ pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"var body = {\r",
+									"    \"batchName\":pm.globals.get(\"batchName\"),\r",
+									"    \"batchDescription\":\"API Testing\",\r",
+									"    \"batchStatus\":\"Active\",\r",
+									"    \"batchNoOfClasses\":\"12\",\r",
+									"    //\"programId\":305,\r",
+									"     \"programId\":pm.globals.get(\"ProramId\"),\r",
+									"}\r",
+									"\r",
+									"   var jsonBody = JSON.stringify(body);\r",
+									"\r",
+									"pm.collectionVariables.set(\"req_body\",jsonBody)\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"//var jsonData=JSON.parse(responseBody);\r",
+									"//pm.globals.set(\"newBatchId\",jsonData.batchId);\r",
+									"//pm.globals.set(\"newBatchName\",jsonData.batchName);\r",
+									"//pm.globals.set(\"newProgramId\",jsonData.programId);\r",
+									"//pm.globals.set(\"newbatchStatus\",jsonData.batchStatus);\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/batches",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Batch create -201 status code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require ('moment');\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"pm.globals.set(\"batchName\",monthYear+ teamName +pm.variables.replaceIn('{{$randomInt}}'));\r",
+									"\r",
+									"//const toolIds = pm.variables.get('toolIds');\r",
+									"//pm.variables.set('currentToolIds' , toolIds.shift());\r",
+									"\r",
+									"pm.globals.set(\"ProgramId\",+pm.variables.replaceIn('{{$randomInt}}'));\r",
+									"\r",
+									"var body = {\r",
+									"    \"batchName\":pm.globals.get(\"batchName\"),\r",
+									"    \"batchDescription\":\"API Testing\",\r",
+									"    \"batchStatus\":\"Active\",\r",
+									"    \"batchNoOfClasses\":\"12\",\r",
+									"    //\"programId\":305,\r",
+									"    \"programId\":pm.globals.get(\"ProgramId\"),\r",
+									"}\r",
+									"\r",
+									"   var jsonBody = JSON.stringify(body);\r",
+									"\r",
+									"pm.collectionVariables.set(\"req_body\",jsonBody)\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"//const res = pm.response.json();\r",
+									"//console.log(\"batchId\"+ res[0].batchId);\r",
+									"//m.globals.set(\"batchId\", res[0].batchId);\r",
+									"\r",
+									"\r",
+									"var jsonData=JSON.parse(responseBody);\r",
+									"pm.globals.set(\"batchId\",jsonData.batchId);\r",
+									"\r",
+									"//var jsonData=JSON.parse(responseBody);\r",
+									"//pm.globals.set(\"programId\",jsonData.programId);\r",
+									"\r",
+									"\r",
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"//const response = pm.response.json();\r",
+									"//const toolIds= response.map(tool=>tool.programId);\r",
+									"//console.log(toolIds);\r",
+									"//pm.variables.set('toolIds', toolIds );\r",
+									"\r",
+									"//var jsonData=JSON.parse(responseBody);\r",
+									"//pm.globals.set(\"newBatchId\",jsonData.batchId);\r",
+									"//pm.globals.set(\"newBatchName\",jsonData.batchName);\r",
+									"//pm.globals.set(\"newProgramId\",jsonData.programId);\r",
+									"//pm.globals.set(\"newbatchStatus\",jsonData.batchStatus);\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"batchId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"batchName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchNoOfClasses\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"batchId\",\r",
+									"    \"batchName\",\r",
+									"    \"batchDescription\",\r",
+									"    \"batchStatus\",\r",
+									"    \"batchNoOfClasses\",\r",
+									"    \"programId\",\r",
+									"    \"programName\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test('POST Batch Create Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"POST Batch Create Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody.batchId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchNoOfClasses).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a(\"string\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/batches",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Batch by Batch ID - 200 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData=JSON.parse(responseBody);\r",
+									"pm.globals.set(\"BatchName\",jsonData.batchName);\r",
+									"\r",
+									"\r",
+									"\r",
+									"//var jsonData=JSON.parse(responseBody);\r",
+									"//pm.globals.set(\"BatchName\",jsonData.batchName);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"Get Batch by batchId Test data type of response\",()=>{\r",
+									"\r",
+									"    pm.expect(responsebody.batchId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchNoOfClasses).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a(\"string\");\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"batchId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"batchName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchNoOfClasses\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"batchId\",\r",
+									"    \"batchName\",\r",
+									"    \"batchDescription\",\r",
+									"    \"batchStatus\",\r",
+									"    \"batchNoOfClasses\",\r",
+									"    \"programId\",\r",
+									"    \"programName\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test('Get Batch by batchId Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/batches/batchId/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"batchId",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Batches by Batch Name-200 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"//const res = pm.response.json();\r",
+									"//console.log(\"programId\"+ res[0].programId);\r",
+									"//pm.globals.set(\"programId\", res[0].programId);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"batchId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"batchName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchNoOfClasses\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"batchId\",\r",
+									"        \"batchName\",\r",
+									"        \"batchDescription\",\r",
+									"        \"batchStatus\",\r",
+									"        \"batchNoOfClasses\",\r",
+									"        \"programId\",\r",
+									"        \"programName\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"batchId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"batchName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchNoOfClasses\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"batchId\",\r",
+									"        \"batchName\",\r",
+									"        \"batchDescription\",\r",
+									"        \"batchStatus\",\r",
+									"        \"batchNoOfClasses\",\r",
+									"        \"programId\",\r",
+									"        \"programName\"\r",
+									"      ]\r",
+									"    }\r",
+									"    \r",
+									"      ]\r",
+									"    }\r",
+									"  \r",
+									"\r",
+									"pm.test('Get Program by ID Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"Get All batches Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody).to.be.an(\"array\");\r",
+									"    pm.expect(responsebody[0].batchId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody[0].batchName).to.be.a('string');\r",
+									"    pm.expect(responsebody[0].batchDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody[0].batchStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody[0].batchNoOfClasses).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody[0].programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody[0].programName).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/batches/batchName/{{BatchName}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"batchName",
+								"{{BatchName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Batches by Batch Name-404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/batches/batchName/:{batchName}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"batchName",
+								":{batchName}}"
+							],
+							"variable": [
+								{
+									"key": "{batchName}}",
+									"value": "wertkk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Batch By Batch ID- 201 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"var moment = require ('moment');\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.globals.set(\"batchName\",monthYear+ teamName +pm.variables.replaceIn('{{$randomInt}}'));\r",
+									"\r",
+									"\r",
+									"\r",
+									"var body =\r",
+									"{\r",
+									"    \"batchName\": pm.globals.get(\"batchName\"),\r",
+									"    \"batchDescription\": \"Python\",\r",
+									"    \"batchStatus\": \"InActive\",\r",
+									"    \"batchNoOfClasses\": 13,\r",
+									"    \"programId\" : 305 ,\r",
+									"    //\"programId\":pm.globals.get(\"ProgramId\"),\r",
+									"    \"programName\": \"PostmanNinjas-SDET-009\"\r",
+									"}\r",
+									"\r",
+									"pm.collectionVariables.set(\"req_body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var schema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"batchId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"batchName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchNoOfClasses\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"batchId\",\r",
+									"    \"batchName\",\r",
+									"    \"batchDescription\",\r",
+									"    \"batchStatus\",\r",
+									"    \"batchNoOfClasses\",\r",
+									"    \"programId\",\r",
+									"    \"programName\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test('POST Batch Create Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"POST Batch Create Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody.batchId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchNoOfClasses).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a(\"string\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/batches/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Batch By Batch ID- 400 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//var bID = pm.globals.get(\"batchId\");\r",
+									"//console.log(\"bID ==>\"+ bID);\r",
+									"\r",
+									"\r",
+									"var moment = require ('moment');\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"\r",
+									"\r",
+									"\r",
+									"//pm.globals.set(\"batchName\",monthYear+ teamName +pm.variables.replaceIn('{{$randomInt}}'));\r",
+									"\r",
+									"\r",
+									"\r",
+									"var body =\r",
+									"{\r",
+									"    \"batchName\": pm.globals.get(\"batchName\"),\r",
+									"    \"batchDescription\": \"Python\",\r",
+									"    \"batchStatus\": \"InActive\",\r",
+									"    \"batchNoOfClasses\": 13,\r",
+									"    \"programId\": 305,\r",
+									"    \"programName\": \"PostmanNinjas-SDET-009\"\r",
+									"}\r",
+									"\r",
+									"pm.collectionVariables.set(\"req_body\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/batches/:{batchId}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								":{batchId}"
+							],
+							"variable": [
+								{
+									"key": "{batchId}",
+									"value": "78965"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by Batch ID-200 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/batches/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by Batch ID-400 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/batches/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Batch by Batch ID - 404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/batches/batchId/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"batchId",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Batch create -201 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require ('moment');\r",
+									"var monthYear = moment().format(\"MMMYY\");\r",
+									"const teamName = \"-PostmanNinjas-SDET-\";\r",
+									"pm.globals.set(\"batchName\",monthYear+ teamName +pm.variables.replaceIn('{{$randomInt}}'));\r",
+									"\r",
+									"//const toolIds = pm.variables.get('toolIds');\r",
+									"//pm.variables.set('currentToolIds' , toolIds.shift());\r",
+									"\r",
+									"//const ProId = 1\r",
+									"\r",
+									"//parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"//console.log (\"After increment serialNumber =>\"+pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"programId\",+pm.variables.replaceIn('{{$randomInt}}'));\r",
+									"\r",
+									"var body = {\r",
+									"    \"batchName\":pm.globals.get(\"batchName\"),\r",
+									"    \"batchDescription\":\"SQL\",\r",
+									"    \"batchStatus\":\"In Active\",\r",
+									"    \"batchNoOfClasses\":\"12\",\r",
+									"    //\"programId\":200,\r",
+									"    \"programId\":pm.globals.get(\"programId\"),\r",
+									"}\r",
+									"\r",
+									"   var jsonBody = JSON.stringify(body);\r",
+									"\r",
+									"pm.collectionVariables.set(\"req_body\",jsonBody)\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"var jsonData=JSON.parse(responseBody);\r",
+									"pm.globals.set(\"programId\",jsonData.programId);\r",
+									"\r",
+									"\r",
+									"//var jsonData=JSON.parse(responseBody);\r",
+									"//pm.globals.set(\"newBatchId\",jsonData.batchId);\r",
+									"//pm.globals.set(\"newBatchName\",jsonData.batchName);\r",
+									"//pm.globals.set(\"newProgramId\",jsonData.programId);\r",
+									"//pm.globals.set(\"newbatchStatus\",jsonData.batchStatus);\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"batchId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"batchName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchDescription\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchStatus\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"batchNoOfClasses\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programId\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"programName\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"batchId\",\r",
+									"    \"batchName\",\r",
+									"    \"batchDescription\",\r",
+									"    \"batchStatus\",\r",
+									"    \"batchNoOfClasses\",\r",
+									"    \"programId\",\r",
+									"    \"programName\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test('POST Batch Create Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"POST Batch Create Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody.batchId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchName).to.be.a('string');\r",
+									"    pm.expect(responsebody.programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.batchDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody.batchNoOfClasses).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody.programName).to.be.a(\"string\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/batches",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Batches By Program ID- 200 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"console.log(\"batchId\"+ res[0].batchId);\r",
+									"pm.globals.set(\"batchId\", res[0].batchId);\r",
+									"\r",
+									"console.log(\"programId\"+ res[0].programId);\r",
+									"pm.globals.set(\"programId\", res[0].programId);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": [\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"batchId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"batchName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchNoOfClasses\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"batchId\",\r",
+									"        \"batchName\",\r",
+									"        \"batchDescription\",\r",
+									"        \"batchStatus\",\r",
+									"        \"batchNoOfClasses\",\r",
+									"        \"programId\",\r",
+									"        \"programName\"\r",
+									"      ]\r",
+									"    },\r",
+									"    {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"batchId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"batchName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchDescription\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchStatus\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"batchNoOfClasses\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"programName\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"batchId\",\r",
+									"        \"batchName\",\r",
+									"        \"batchDescription\",\r",
+									"        \"batchStatus\",\r",
+									"        \"batchNoOfClasses\",\r",
+									"        \"programId\",\r",
+									"        \"programName\"\r",
+									"      ]\r",
+									"    }\r",
+									"    \r",
+									"      ]\r",
+									"    }\r",
+									"  \r",
+									"\r",
+									"pm.test('Get Program by ID Schema is valid', function () {\r",
+									"    const responsebody= pm.response.json();\r",
+									"    pm.expect(tv4.validate(responsebody, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"let responsebody= pm.response.json();\r",
+									"pm.test(\"Get All batches Test data type of response\",()=>{\r",
+									"    pm.expect(responsebody).to.be.an(\"array\");\r",
+									"    pm.expect(responsebody[0].batchId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody[0].batchName).to.be.a('string');\r",
+									"    pm.expect(responsebody[0].batchDescription).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody[0].batchStatus).to.be.a(\"string\");\r",
+									"    pm.expect(responsebody[0].batchNoOfClasses).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody[0].programId).to.be.a(\"number\");\r",
+									"    pm.expect(responsebody[0].programName).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/batches/program/{{programId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"batches",
+								"program",
+								"{{programId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Module",
+			"item": [
+				{
+					"name": "GET All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//const res = pm.response.json();\r",
+									"\r",
+									"//console.log(\"userId\"+ res[0].userId);\r",
+									"//pm.globals.set(\"userId\", res[0].userId);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/users",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users with Rolls",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is above than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.above(300);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/users/roles",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User With Role01",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const FirstName = \"Amy-SDET-\";\r",
+									"const PhoneNumber = \"3689345664\";\r",
+									"const LastName = \"Well-SDET-\";\r",
+									"\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"AdminFirstName\",FirstName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"AdminLastName\",LastName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"AdminPhoneNumber\",PhoneNumber + pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"var body = \r",
+									"\r",
+									"{\r",
+									"  \"userComments\": \"creating new user with multiple role \",\r",
+									"  \"userEduPg\": \"mca\",\r",
+									"  \"userEduUg\": \"BE\",\r",
+									"  \"userFirstName\": pm.globals.get(\"AdminFirstName\"),\r",
+									"  \"userLastName\": pm.globals.get(\"AdminLastName\"),\r",
+									"  \"userLinkedinUrl\": \"\",\r",
+									"  \"userLocation\": \"usa\",\r",
+									"  \"userMiddleName\": \"\",\r",
+									"  \"userPhoneNumber\":pm.globals.get(\"AdminPhoneNumber\"),\r",
+									"  \"userRoleMaps\": [\r",
+									"    {\r",
+									"      \"roleId\": \"R01\",\r",
+									"      \"userRoleStatus\": \"ROLE_ADMIN\"\r",
+									"    }\r",
+									"  ],\r",
+									"  \"userTimeZone\": \"EST\",\r",
+									"  \"userVisaStatus\": \"NA\"\r",
+									"}\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"requestbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/roleStatus",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roleStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User With Role02",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const FirstName = \"Ram-SDET-\";\r",
+									"const PhoneNumber = \"3689345665\";\r",
+									"const LastName = \"Roy-SDET-\";\r",
+									"\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"StaffFirstName\",FirstName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"StaffLastName\",LastName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"StaffPhoneNumber\",PhoneNumber + pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"var body = \r",
+									"\r",
+									"{\r",
+									"  \"userComments\": \"creating new user with multiple role \",\r",
+									"  \"userEduPg\": \"mca\",\r",
+									"  \"userEduUg\": \"BE\",\r",
+									"  \"userFirstName\": pm.globals.get(\"StaffFirstName\"),\r",
+									"  \"userLastName\": pm.globals.get(\"StaffLastName\"),\r",
+									"  \"userLinkedinUrl\": \"\",\r",
+									"  \"userLocation\": \"usa\",\r",
+									"  \"userMiddleName\": \"\",\r",
+									"  \"userPhoneNumber\":pm.globals.get(\"StaffPhoneNumber\"),\r",
+									"  \"userRoleMaps\": [\r",
+									"    {\r",
+									"      \"roleId\": \"R02\",\r",
+									"      \"userRoleStatus\": \"ROLE_STAFF\"\r",
+									"    }\r",
+									"  ],\r",
+									"  \"userTimeZone\": \"EST\",\r",
+									"  \"userVisaStatus\": \"NA\"\r",
+									"}\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"requestbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/roleStatus",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roleStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User With Role03",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const FirstName = \"Jadon-SDET-\";\r",
+									"const PhoneNumber = \"368934569\";\r",
+									"const LastName = \"Ray-SDET-\";\r",
+									"\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"StudentFirstName\",FirstName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"StudentLastName\",LastName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"StudentPhoneNumber\",PhoneNumber + pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"var body = \r",
+									"\r",
+									"{\r",
+									"  \"userComments\": \"creating new user with multiple role \",\r",
+									"  \"userEduPg\": \"mca\",\r",
+									"  \"userEduUg\": \"BE\",\r",
+									"  \"userFirstName\": pm.globals.get(\"StudentFirstName\"),\r",
+									"  \"userLastName\": pm.globals.get(\"StudentLastName\"),\r",
+									"  \"userLinkedinUrl\": \"\",\r",
+									"  \"userLocation\": \"usa\",\r",
+									"  \"userMiddleName\": \"\",\r",
+									"  \"userPhoneNumber\":pm.globals.get(\"StudentPhoneNumber\"),\r",
+									"  \"userRoleMaps\": [\r",
+									"    {\r",
+									"      \"roleId\": \"R03\",\r",
+									"      \"userRoleStatus\": \"ROLE_STUDENT\"\r",
+									"    }\r",
+									"  ],\r",
+									"  \"userTimeZone\": \"EST\",\r",
+									"  \"userVisaStatus\": \"H4\"\r",
+									"}\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"requestbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData=JSON.parse(responseBody);\r",
+									"pm.globals.set(\"userId\",jsonData.userId);\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/roleStatus",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roleStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET User by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/users/{{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Staff",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/getAllStaff",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"getAllStaff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User By Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const NewName = \"Jad-SDET-\";\r",
+									"const NewPhoneNumber = \"368934560\";\r",
+									"const NewLastName = \"Smith-SDET-\";\r",
+									"//const NewUserId = \"U\";\r",
+									"\r",
+									"\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"NewFirstName\",NewName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"NewLastName\",NewLastName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"NewPhoneNumber\",NewPhoneNumber + pm.globals.get(\"serialNumber\"));\r",
+									"//pm.globals.set(\"UserId\", NewUserId + pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"var body = \r",
+									"\r",
+									"{\r",
+									"  \"userComments\": \"creating new user with multiple role \",\r",
+									"  \"userEduPg\": \"mca\",\r",
+									"  \"userEduUg\": \"BE\",\r",
+									"  \"userFirstName\": pm.globals.get(\"NewFirstName\"),\r",
+									"  \"userLastName\": pm.globals.get(\"NewLastName\"),\r",
+									"  \"userId\":pm.globals.get(\"userId\"),\r",
+									"   \"userLinkedinUrl\": \"\",\r",
+									"  \"userLocation\": \"usa\",\r",
+									"  \"userMiddleName\": \"\",\r",
+									"  \"userPhoneNumber\":pm.globals.get(\"NewPhoneNumber\"),\r",
+									"  \"userTimeZone\": \"EST\",\r",
+									"  \"userVisaStatus\": \"H4\"\r",
+									"}\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"Requestbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{Requestbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/{{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User 400 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const NewName = \"Jad-SDET-\";\r",
+									"const NewPhoneNumber = \"368934560\";\r",
+									"const NewLastName = \"Smith-SDET-\";\r",
+									"//const NewUserId = \"U\";\r",
+									"\r",
+									"\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"NewFirstName\",NewName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"NewLastName\",NewLastName+ pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"NewPhoneNumber\",NewPhoneNumber + pm.globals.get(\"serialNumber\"));\r",
+									"//pm.globals.set(\"userId\", NewUserId + pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"var body = \r",
+									"\r",
+									"{\r",
+									"  \"userComments\": \"creating new user with multiple role \",\r",
+									"  \"userEduPg\": \"mca\",\r",
+									"  \"userEduUg\": \"BE\",\r",
+									"  \"userFirstName\": pm.globals.get(\"\"),\r",
+									"  \"userLastName\": pm.globals.get(\"\"),\r",
+									"  //\"userId\":pm.globals.get(\"\"),\r",
+									"   \"userLinkedinUrl\": \"\",\r",
+									"  \"userLocation\": \"usa\",\r",
+									"  \"userMiddleName\": \"\",\r",
+									"  \"userPhoneNumber\":pm.globals.get(\"NewPhoneNumber\"),\r",
+									"  \"userTimeZone\": \"EST\",\r",
+									"  \"userVisaStatus\": \"H4\"\r",
+									"}\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"Requestbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{Requestbdy}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/:{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								":{userId}}"
+							],
+							"variable": [
+								{
+									"key": "{userId}}",
+									"value": "u456778"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Roll Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('text/plain;charset=UTF-8');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var body = \r",
+									"\r",
+									"\r",
+									"  {\r",
+									"  \"roleId\": \"R03\",\r",
+									"  \"userRoleStatus\": \"ROLE_ADMIN\",\r",
+									"}\r",
+									"\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"userequestbody\",jsonBody)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{userequestbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/roleStatus/{{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roleStatus",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Roll Status 400 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var body = \r",
+									"\r",
+									"\r",
+									"  {\r",
+									"  \"roleId\": \"R04\",\r",
+									"  \"userRoleStatus\": \"ROLE_STUDENT\"\r",
+									"}\r",
+									"\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"Requestbody\",jsonBody)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{Requestbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/roleStatus/{{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roleStatus",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Update User Role Program Batch Status",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"//const roleId = \"R01\";\r",
+									"\r",
+									"//pm.globals.set(\"RoleId\",roleId + pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"//parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"//console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"var body =\r",
+									"{\r",
+									"  \"programId\":pm.globals.get(\"programId\"),\r",
+									"  \"roleId\": \"R03\",\r",
+									"  \"userId\": pm.globals.get(\"userId\"),\r",
+									"  \"userRoleProgramBatches\": [\r",
+									"    {\r",
+									"      \"batchId\":pm.globals.get(\"batchId\"),\r",
+									"      \"userRoleProgramBatchStatus\": \"Active\",\r",
+									"    }\r",
+									"  ]\r",
+									"}\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									" pm.collectionVariables.set(\"roleIdBody\", JSON.stringify(body));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{roleIdBody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/roleProgramBatchStatus/{{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roleProgramBatchStatus",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Update User Role Program Batch Status 404 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{requestBody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users/users/roleProgramBatchStatus/:{userId}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"roleProgramBatchStatus",
+								":{userId}"
+							],
+							"variable": [
+								{
+									"key": "{userId}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('text/plain;charset=UTF-8');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.get(\"userId\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/users/{{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserId 404Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/users/:{UserId}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"users",
+								":{UserId}"
+							],
+							"variable": [
+								{
+									"key": "{UserId}",
+									"value": "345678"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment Module",
+			"item": [
+				{
+					"name": "GET All Assignment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"//const res = pm.response.json();\r",
+									"//console.log(\"assignmentId\"+ res[0].assignmentId);\r",
+									"//pm.globals.set(\"assignmentId\", res[0].assignmentId);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignments",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creat Assignment- 201 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"//var monthYear = moment().format(\"MMMYY\");\r",
+									"const assignmentname = \"OOPS Concept 07-\";\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"pm.globals.set(\"AssignmantName\", assignmentname + pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"creationTime\", creationTime);\r",
+									"pm.globals.set(\"lastModTime\", lastModTime);\r",
+									"\r",
+									"var body = \r",
+									"{\r",
+									"        \r",
+									"        \"assignmentName\": \"OOPS Concept 07\" + pm.globals.get(\"serialNumber\"),\r",
+									"        \"assignmentDescription\": \"For Loop\",\r",
+									"        \"comments\": null,\r",
+									"        \"dueDate\": \"2023-07-20T22:00:04.964+00:00\",\r",
+									"        \"batchId\": 2,\r",
+									"        \"createdBy\": \"U22\",\r",
+									"        \"graderId\": \"U19\",\r",
+									"      \"pathAttachment1\": \"string\",\r",
+									"      \"pathAttachment2\": \"string\",\r",
+									"     \"pathAttachment3\": \"string\",\r",
+									"      \"pathAttachment4\": \"string\",\r",
+									"      \"pathAttachment5\": \"string\" }\r",
+									"\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"rtbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData=JSON.parse(responseBody);\r",
+									"pm.globals.set(\"assignmentId\",jsonData.assignmentId);\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{rtbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/assignments",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Assignment  By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData=JSON.parse(responseBody);\r",
+									"pm.globals.set(\"BatchId\",jsonData.batchId);\r",
+									"\r",
+									"\r",
+									"//const res = pm.response.json();\r",
+									"//console.log(\"batchId\"+ res[0].batchId);\r",
+									"//pm.globals.set(\"batchId\", res[0].batchId);\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignments/{{assignmentId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignmentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Assignment for Batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignments/batch/{{BatchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								"batch",
+								"{{BatchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignment By Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"var body = \r",
+									"{\r",
+									"        \r",
+									"        \"assignmentName\": \"OOPS Concept 07\" + pm.globals.get(\"serialNumber\"),\r",
+									"        \"assignmentDescription\": \"For Loop\",\r",
+									"        \"comments\": null,\r",
+									"        \"dueDate\": \"2023-07-20T22:00:04.964+00:00\",\r",
+									"        \"batchId\": 2,\r",
+									"        \"createdBy\": \"U22\",\r",
+									"        \"graderId\": \"U19\",\r",
+									"      \"pathAttachment1\": \"Path_1\",\r",
+									"      \"pathAttachment2\": \"Path_2\",\r",
+									"     \"pathAttachment3\": \"Path_3\",\r",
+									"      \"pathAttachment4\": \"Path_4\",\r",
+									"      \"pathAttachment5\": \"Path_5\" }\r",
+									"   var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"Assigntbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{Assigntbody}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/assignments/{{assignmentId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignmentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Assignment By Id 200 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignments/{{assignmentId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignmentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Assignment  By Invalid ID-404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignments/{{assignmentId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignmentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Assignment for Invalid Batch ID-404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignments/batch/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								"batch",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creat Assignment- 400 Status Code Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require ('moment');\r",
+									"var creationTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"var lastModTime =  moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\");\r",
+									"console.log(\"creationTime and lastModTime\"+ moment().format(\"YYYY-MM-DDTHH:MM:SS.SSS+SS:SS\"));\r",
+									"\r",
+									"//var monthYear = moment().format(\"MMMYY\");\r",
+									"const assignmentname = \"OOPS Concept 07-\";\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+1, 100),100);\r",
+									"\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"//pm.globals.set(\"AssignmantName\", assignmentname + pm.globals.get(\"serialNumber\"));\r",
+									"pm.globals.set(\"creationTime\", creationTime);\r",
+									"pm.globals.set(\"lastModTime\", lastModTime);\r",
+									"\r",
+									"var body = \r",
+									"{\r",
+									"        \r",
+									"        \"assignmentName\": \"OOPS Concept 07\" + pm.globals.get(\"serialNumber\"),\r",
+									"        \"assignmentDescription\": \"For Loop\",\r",
+									"        \"comments\": null,\r",
+									"        \"dueDate\": \"2023-07-20T22:00:04.964+00:00\",\r",
+									"        \"batchId\": 2,\r",
+									"        \"createdBy\": \"U22\",\r",
+									"        \"graderId\": \"U19\",\r",
+									"      \"pathAttachment1\": \"string\",\r",
+									"      \"pathAttachment2\": \"string\",\r",
+									"     \"pathAttachment3\": \"string\",\r",
+									"      \"pathAttachment4\": \"string\",\r",
+									"      \"pathAttachment5\": \"string\" }\r",
+									"\r",
+									"\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"rtbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{rbdy}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/assignments",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignment  By Invalid Id 400 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"var body = \r",
+									"{\r",
+									"        \r",
+									"        \"assignmentName\": \"OOPS Concept 07\" + pm.globals.get(\"serialNumber\"),\r",
+									"        \"assignmentDescription\": \"For Loop\",\r",
+									"        \"comments\": null,\r",
+									"        \"dueDate\": \"2023-07-20T22:00:04.964+00:00\",\r",
+									"        \"batchId\": 2,\r",
+									"        \"createdBy\": \"U22\",\r",
+									"        \"graderId\": \"U19\",\r",
+									"      \"pathAttachment1\": \"string\",\r",
+									"      \"pathAttachment2\": \"string\",\r",
+									"     \"pathAttachment3\": \"string\",\r",
+									"      \"pathAttachment4\": \"string\",\r",
+									"      \"pathAttachment5\": \"string\" }\r",
+									"   var jsonBody = JSON.stringify(body);\r",
+									"  pm.collectionVariables.set(\"Assigntbody\",jsonBody)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{Assign}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/assignments/:{assignmentId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								":{assignmentId}}"
+							],
+							"variable": [
+								{
+									"key": "{assignmentId}}",
+									"value": "45601"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Assignment By Id 404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"succeseful POST request\",()=>{\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([404]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignments/{{assignmentId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignments",
+								"{{assignmentId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment submit Module",
+			"item": [
+				{
+					"name": "Get All Submission",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"const res = pm.response.json();\r",
+									"\r",
+									"console.log(\"assignmentId\"+ res[4].assignmentId);\r",
+									"pm.globals.set(\"assignmentId\", res[4].assignmentId);\r",
+									"\r",
+									"\r",
+									"console.log(\"userId\"+ res[4].userId);\r",
+									"pm.globals.set(\"userId\", res[4].userId);\r",
+									"\r",
+									"\r",
+									"//console.log(\"userId\"+ res[0].userId);\r",
+									"//pm.globals.get(\"userId\",studentID + pm.globals. set(\"studentID\") );\r",
+									"\r",
+									"\r",
+									" \r",
+									"//console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"//const res = pm.response.json();\r",
+									"//console.log(\"submissionId\"+ res[0].submissionId);\r",
+									"//pm.globals.set(\"submissionId\", res[0].submissionId);\r",
+									"\r",
+									"\r",
+									"//var jsonData=JSON.parse(responseBody);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Grades by StudentID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200 );\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/getGradesByStudentId/:{studentID}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"getGradesByStudentId",
+								":{studentID}"
+							],
+							"variable": [
+								{
+									"key": "{studentID}",
+									"value": "{{userId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Grades By  Invalid StudentID 404 Status Code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const UId = \"U\";\r",
+									"parseInt(pm.globals.set(\"serialNumber\", parseInt(pm.globals.get(\"serialNumber\"))+100, 100),100);\r",
+									"console.log (\"After increment serialNumber ==>\"+pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									"pm.globals.set(\"studentID\", UId + pm.globals.get(\"serialNumber\"));\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/getGradesByStudentId/:{studentID}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"getGradesByStudentId",
+								":{studentID}}"
+							],
+							"variable": [
+								{
+									"key": "{studentID}}",
+									"value": "22"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Submission by User ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/student/{{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"student",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Submission By Invalid User ID 404 Status Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.globals.get(\"userId\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/student/:{userId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"student",
+								":{userId}}"
+							],
+							"variable": [
+								{
+									"key": "{userId}}",
+									"value": "44566"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Grade By Assignment ID Bug",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/getGrades/{{assignmentId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"getGrades",
+								"{{assignmentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Grades by BatchID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/grades/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"grades",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Submission by batch ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('content-Type')).to.eql\r",
+									"    ('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/studentbatch/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"studentbatch",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Submit Assignment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const moment = require('moment');\r",
+									"pm.globals.set(\"creationTime \", moment ().format());\r",
+									"\r",
+									"var body = \r",
+									"    \r",
+									"[   {       \r",
+									"        \"assignmentId\": pm.globals.get(\"assignmentId\"),\r",
+									"        \"userId\": pm.globals.get(\"userId\"),\r",
+									"        \"subDesc\": \"Postman\",\r",
+									"        \"subComments\": \"Submissions for Postman assignment\",\r",
+									"        \"subPathAttach1\": \"path1\",\r",
+									"        \"subPathAttach2\": \"path2\",\r",
+									"        \"subPathAttach3\": \"path3\",\r",
+									"        \"subPathAttach4\": \"path4\",\r",
+									"        \"subPathAttach5\": \"path4\",\r",
+									"        \"subDateTime\": \"{{creationTime}}\",\r",
+									"        \"gradedBy\": 0 ,\r",
+									"        \"gradedDateTime\": \"\",\r",
+									"        \"grade\": 2\r",
+									"    }\r",
+									"    \r",
+									"]\r",
+									"var jsonBody = JSON.stringify(body);\r",
+									"pm.collectionVariables.set(\"AssignSub_body\",jsonBody)\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{AssignSub_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/studentbatch/{{batchId}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"studentbatch",
+								"{{batchId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Resubmit Assignment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}assignmentsubmission/{Id}",
+							"host": [
+								"{{baseurl}}assignmentsubmission"
+							],
+							"path": [
+								"{Id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Grade Assignment Submission",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/assignmentsubmission/gradesubmission/{submissionId}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"assignmentsubmission",
+								"gradesubmission",
+								"{submissionId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}} /assignmentsubmission/{{Id}}",
+							"host": [
+								"{{baseurl}} "
+							],
+							"path": [
+								"assignmentsubmission",
+								"{{Id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms\n",
+			"disabled": true
+		},
+		{
+			"key": "req_body",
+			"value": ""
+		},
+		{
+			"key": "request_body",
+			"value": ""
+		},
+		{
+			"key": "requestbody",
+			"value": ""
+		},
+		{
+			"key": "Requestbody",
+			"value": ""
+		},
+		{
+			"key": "requestBody",
+			"value": ""
+		},
+		{
+			"key": "body",
+			"value": ""
+		},
+		{
+			"key": "rq_body",
+			"value": ""
+		},
+		{
+			"key": "rtbody",
+			"value": ""
+		},
+		{
+			"key": "Assigntbody",
+			"value": ""
+		},
+		{
+			"key": "AssignSub_body",
+			"value": ""
+		},
+		{
+			"key": "roleIdBody",
+			"value": ""
+		},
+		{
+			"key": "userequestbody",
+			"value": ""
+		}
+	]
+}
